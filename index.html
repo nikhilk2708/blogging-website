@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Daily Journal</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        /* .container-fluid {
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+        .navbar {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border: 0;
+            border-radius: 0;
+            margin-bottom: 0;
+            font-size: 12px;
+            letter-spacing: 5px;
+        }
+        .navbar-nav li a:hover {
+            color: #1abc9c !important;
+        }
+
+        .footer-padding {
+            padding-bottom: 60px;
+        }
+
+        .footer {
+            position: absolute;
+            text-align: center;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #1abc9c;
+        }
+
+        .footer p {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #fff;
+        }
+        
+        .blog-post {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .compose-form {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .page-content {
+            min-height: 70vh;
+        }
+        
+        .active a {
+            color: #1abc9c !important;
+        } */
+         .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+.navbar-nav  li a:hover {
+    color: #1abc9c !important;
+}
+
+.footer-padding {
+	padding-bottom: 60px;
+}
+
+.footer {
+	position: absolute;
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	background-color: #1abc9c;
+}
+
+.footer p {
+	margin-top: 25px;
+	font-size: 12px;
+  color: #fff;
+}
+    </style>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <p class="navbar-brand">DAILY JOURNAL</p>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li id="home" class="active"><a href="#home" onclick="showPage('home')">HOME</a></li>
+                <li id="about"><a href="#about" onclick="showPage('about')">ABOUT US</a></li>
+                <li id="contact"><a href="#contact" onclick="showPage('contact')">CONTACT US</a></li>
+                <li id="compose"><a href="#compose" onclick="showPage('compose')">COMPOSE</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container page-content">
+        <!-- HOME PAGE -->
+        <div id="home-page" class="page-section">
+            <h1>Home</h1>
+            <p>This is a multipurpose platform tackling diverse topics, where anyone with an account can write. It's
+                super simple to use. It's a solid solution for personal blogs, but it's not the best resource for
+                professional use. It has simple appearance options, so the focus stays more on the writing part. When it
+                comes to the ease of use, the platform provides an old-school editor. A blog is an online journal or
+                informational website displaying information in reverse chronological order, with the latest posts
+                appearing first.</p>
+
+            <div id="blog-posts">
+                <!-- Blog posts will be dynamically added here -->
+            </div>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="about-page" class="page-section" style="display: none;">
+            <h1>About</h1>
+            <p>Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dictumst vestibulum rhoncus est
+                pellentesque elit ullamcorper. Non diam phasellus vestibulum lorem sed. Platea dictumst quisque sagittis
+                purus sit. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Mauris in aliquam sem
+                fringilla. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Amet massa vitae tortor
+                condimentum lacinia quis vel eros. Enim ut tellus elementum sagittis vitae et leo duis ut. Euismod
+                lacinia at quis risus sed vulputate odio. Velit laoreet id donec ultrices tincidunt arcu non sodales
+                neque.</p>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div id="contact-page" class="page-section" style="display: none;">
+            <h1>Contact</h1>
+            <p>Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu
+                dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at
+                in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum
+                varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet
+                consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices vitae auctor eu augue ut
+                lectus arcu bibendum at.</p>
+        </div>
+
+        <!-- COMPOSE PAGE -->
+        <div id="compose-page" class="page-section" style="display: none;">
+            <h1>Compose</h1>
+            <div class="compose-form">
+                <form id="blog-form">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input class="form-control" type="text" name="title" id="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="blog">Blog Content</label>
+                        <textarea class="form-control" name="blog" id="blog" rows="8" cols="80" required></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Compose</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- INDIVIDUAL BLOG POST PAGE -->
+        <div id="post-page" class="page-section" style="display: none;">
+            <a href="#home" onclick="showPage('home')" class="btn btn-link">&larr; Back to Home</a>
+            <div id="post-content">
+                <!-- Individual post content will be shown here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-padding"></div>
+    <div class="footer">
+        <p>copyright 2019-2024</p>
+    </div>
+
+    <script>
+        // Blog storage array
+        let blogs = [];
+
+        // Function to show different pages
+        function showPage(pageName) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(page => page.style.display = 'none');
+
+            // Show selected page
+            document.getElementById(pageName + '-page').style.display = 'block';
+
+            // Update active nav item
+            const navItems = document.querySelectorAll('.navbar-nav li');
+            navItems.forEach(item => item.classList.remove('active'));
+            document.getElementById(pageName).classList.add('active');
+        }
+
+        // Function to create slug from title
+        function createSlug(title) {
+            return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        }
+
+        // Function to display blog posts on home page
+        function displayBlogPosts() {
+            const blogPostsContainer = document.getElementById('blog-posts');
+            blogPostsContainer.innerHTML = '';
+
+            blogs.forEach((blog, index) => {
+                const blogHtml = `
+                    <div class="blog-post">
+                        <h2><a href="#" onclick="showBlogPost(${index})" style="color: #1abc9c; text-decoration: none;">${blog.title}</a></h2>
+                        <p>${blog.content.substring(0, 100)}... <a href="#" onclick="showBlogPost(${index})" style="color: #1abc9c;">read more</a></p>
+                        <small class="text-muted">Posted on ${blog.date}</small>
+                    </div>
+                `;
+                blogPostsContainer.innerHTML += blogHtml;
+            });
+
+            if (blogs.length === 0) {
+                blogPostsContainer.innerHTML = '<p class="text-muted">No blog posts yet. <a href="#compose" onclick="showPage(\'compose\')">Create your first post!</a></p>';
+            }
+        }
+
+        // Function to show individual blog post
+        function showBlogPost(index) {
+            const blog = blogs[index];
+            const postContent = document.getElementById('post-content');
+            postContent.innerHTML = `
+                <h1>${blog.title}</h1>
+                <small class="text-muted">Posted on ${blog.date}</small>
+                <hr>
+                <p style="white-space: pre-wrap; line-height: 1.6;">${blog.content}</p>
+            `;
+            showPage('post');
+        }
+
+        // Handle form submission
+        document.getElementById('blog-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('blog').value;
+
+            if (title && content) {
+                const newBlog = {
+                    title: title,
+                    content: content,
+                    date: new Date().toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    })
+                };
+
+                blogs.unshift(newBlog); // Add to beginning of array
+
+                // Clear form
+                document.getElementById('title').value = '';
+                document.getElementById('blog').value = '';
+
+                // Update blog posts display
+                displayBlogPosts();
+
+                // Show success message
+                alert('Blog post created successfully!');
+
+                // Redirect to home page
+                showPage('home');
+            }
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function () {
+            showPage('home');
+            displayBlogPosts();
+        });
+
+        // Add some sample blog posts for demonstration
+        blogs = [
+            {
+                title: "Welcome to Daily Journal",
+                content: "This is our first blog post! We're excited to share stories, insights, and thoughts with our community. Daily Journal is designed to be a simple yet powerful platform for writers and readers alike.\n\nWhether you're sharing personal experiences, professional insights, or creative writing, this platform provides a clean, distraction-free environment to focus on what matters most: your words.\n\nWe believe everyone has a story worth telling, and we're here to help you tell yours. Start writing today and join our growing community of writers and readers.",
+                date: "December 15, 2024"
+            },
+            {
+                title: "The Art of Storytelling",
+                content: "Storytelling is one of humanity's oldest and most powerful forms of communication. From cave paintings to digital blogs, we've always found ways to share our experiences and connect with others.\n\nA good story has the power to inspire, educate, and transform. It can bridge differences, create empathy, and help us understand perspectives different from our own.\n\nIn the digital age, we have unprecedented opportunities to share our stories with global audiences. Whether you're writing about your daily experiences, professional insights, or creative fiction, remember that your unique perspective adds value to the conversation.\n\nSo pick up your pen (or keyboard) and start writing. The world is waiting to hear your story.",
+                date: "December 10, 2024"
+            }
+        ];
+
+        // Display the sample posts
+        displayBlogPosts();
+    </script>
+</body>
+
+</html>
